@@ -2,7 +2,7 @@ Role Name
 =========
 
 A brief description of the role goes here.
-
+This role helps to install filebat to centos 7 via Ansible
 Requirements
 ------------
 
