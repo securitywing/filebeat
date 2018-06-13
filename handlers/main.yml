@@ -1,0 +1,4 @@
+---
+# handlers file for filebeat
+ - name: restart filebeat
+   command: "systemctl restart filebeat"

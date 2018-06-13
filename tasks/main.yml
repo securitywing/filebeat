@@ -1,0 +1,25 @@
+---
+# tasks file for filebeat
+ - name: Download and install the public signing key
+   command: "rpm --import https://packages.elastic.co/GPG-KEY-elasticsearch"
+
+ - name: add filebeat repo
+   copy:  
+      src: filebeat.repo
+      dest: /etc/yum.repos.d
+      owner: root
+      group: root
+      mode: 0644
+
+ - name: install filebeat
+   package: name=filebeat state=latest
+
+ - name: filebeat.yml 
+   template:
+      src: filebeat.yml.j2
+      dest: /etc/filebeat/filebeat.yml
+      owner: root
+      group: root
+      mode: 0644
+   notify: restart filebeat
+    
